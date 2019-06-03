@@ -3,7 +3,7 @@
         <thead>
             <tr>
                 <th>Topic</th>
-                <th>Ranking</th>
+                <th>Current Ranking</th>
             </tr>
         </thead>
         ${topicData.map(topic => `
@@ -13,4 +13,90 @@
             </tr>
         `).join('')}
     </table>
+    <table class="table">
+            <thead>
+                <tr>
+                    <th>Topic</th>
+                    <th>Ranking Changes</th>
+                </tr>
+            </thead>
+                <tr>
+                    <td>HTML</td> 
+                    <td>
+                        <select name='html-rank'>
+                            <option value='0'>Unranked</option>
+                            <option value='1'>Poor</option>
+                            <option value='2'>Okay</option>
+                            <option value='3'>Good</option>
+                            <option value='4'>Great</option>
+                            <option value='5'>Awesome</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CSS</td>
+                    <td> 
+                        <select name='css-rank'>
+                            <option value='0'>Unranked</option>
+                            <option value='1'>Poor</option>
+                            <option value='2'>Okay</option>
+                            <option value='3'>Good</option>
+                            <option value='4'>Great</option>
+                            <option value='5'>Awesome</option>
+                        </select>
+                    </td>    
+                </tr>
+                <tr>
+                    <td>Javascript</td>
+                    <td> 
+                        <select name='javascript-rank'>
+                            <option value='0'>Unranked</option>
+                            <option value='1'>Poor</option>
+                            <option value='2'>Okay</option>
+                            <option value='3'>Good</option>
+                            <option value='4'>Great</option>
+                            <option value='5'>Awesome</option>
+                        </select>
+                    </td>    
+                </tr>
+                <tr>
+                    <td>PostgreSQL</td> 
+                    <td>
+                        <select name='postgres-rank'>
+                            <option value='0'>Unranked</option>
+                            <option value='1'>Poor</option>
+                            <option value='2'>Okay</option>
+                            <option value='3'>Good</option>
+                            <option value='4'>Great</option>
+                            <option value='5'>Awesome</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Node</td> 
+                    <td>
+                        <select name='node-rank'>
+                            <option value='0'>Unranked</option>
+                            <option value='1'>Poor</option>
+                            <option value='2'>Okay</option>
+                            <option value='3'>Good</option>
+                            <option value='4'>Great</option>
+                            <option value='5'>Awesome</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Express</td> 
+                    <td>
+                        <select name='express-rank'>
+                            <option value='0'>Unranked</option>
+                            <option value='1'>Poor</option>
+                            <option value='2'>Okay</option>
+                            <option value='3'>Good</option>
+                            <option value='4'>Great</option>
+                            <option value='5'>Awesome</option>
+                        </select>
+                    </td>
+                </tr>
+        </table>
 </section>
