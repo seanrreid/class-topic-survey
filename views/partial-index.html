@@ -1,105 +1,28 @@
 <section class="section">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Topic</th>
-                <th>Current Ranking</th>
-            </tr>
-        </thead>
-        ${topicData.map(topic => `
-            <tr>
-                <td>${topic.topic_name}</td> 
-                <td>${topic.status_title}</td>
-            </tr>
-        `).join('')}
-    </table>
     <form name="ranking-form" action="/update" method="POST">
         <table class="table">
             <thead>
                 <tr>
                     <th>Topic</th>
-                    <th>Ranking Changes</th>
+                    <th>Current Ranking</th>
                 </tr>
             </thead>
+            <tbody>
+            ${topicData.map(topic => `
                 <tr>
-                    <td>HTML</td> 
-                    <td>
-                        <select name='html-rank'>
-                            <option value='0'>Unranked</option>
-                            <option value='1'>Poor</option>
-                            <option value='2'>Okay</option>
-                            <option value='3'>Good</option>
-                            <option value='4'>Great</option>
-                            <option value='5'>Awesome</option>
-                        </select>
+                    <td class="topic-name">${topic.topic_name}</td> 
+                    <td class="has-input">
+                        ${topicStatusList.map(status => `
+                            <label ${topic.status_title === status.status_title ? `class='active'` : ''}>
+                                ${status.status_title}
+                                <input type='radio' name="${topic.topic_name}" value="${status.id}" ${topic.status_title === status.status_title ? 'checked' : ''}>
+                            </label>
+                        `).join('')}
                     </td>
                 </tr>
-                <tr>
-                    <td>CSS</td>
-                    <td> 
-                        <select name='css-rank'>
-                            <option value='0'>Unranked</option>
-                            <option value='1'>Poor</option>
-                            <option value='2'>Okay</option>
-                            <option value='3'>Good</option>
-                            <option value='4'>Great</option>
-                            <option value='5'>Awesome</option>
-                        </select>
-                    </td>    
-                </tr>
-                <tr>
-                    <td>Javascript</td>
-                    <td> 
-                        <select name='javascript-rank'>
-                            <option value='0'>Unranked</option>
-                            <option value='1'>Poor</option>
-                            <option value='2'>Okay</option>
-                            <option value='3'>Good</option>
-                            <option value='4'>Great</option>
-                            <option value='5'>Awesome</option>
-                        </select>
-                    </td>    
-                </tr>
-                <tr>
-                    <td>PostgreSQL</td> 
-                    <td>
-                        <select name='postgres-rank'>
-                            <option value='0'>Unranked</option>
-                            <option value='1'>Poor</option>
-                            <option value='2'>Okay</option>
-                            <option value='3'>Good</option>
-                            <option value='4'>Great</option>
-                            <option value='5'>Awesome</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Node</td> 
-                    <td>
-                        <select name='node-rank'>
-                            <option value='0'>Unranked</option>
-                            <option value='1'>Poor</option>
-                            <option value='2'>Okay</option>
-                            <option value='3'>Good</option>
-                            <option value='4'>Great</option>
-                            <option value='5'>Awesome</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Express</td> 
-                    <td>
-                        <select name='express-rank'>
-                            <option value='0'>Unranked</option>
-                            <option value='1'>Poor</option>
-                            <option value='2'>Okay</option>
-                            <option value='3'>Good</option>
-                            <option value='4'>Great</option>
-                            <option value='5'>Awesome</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <button type="submit">Save Rankings</button>
-        </form>
+            `).join('')}
+            </tbody>
+        </table>
+        <button type="submit" class="button is-medium is-primary">Save Rankings</button>
+    </form>
 </section>
