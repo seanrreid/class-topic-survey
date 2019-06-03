@@ -42,3 +42,21 @@ small, .text_small {font-size: 0.75em;}
 .container {
   max-width: 60rem;
 }
+
+.topic-name {
+  font-weight: bold;
+}
+
+.has-input label {
+  background-color: hsl(0, 0%, 96%);
+  border-radius: 4px;
+  display: inline-block;
+  margin-right: 4px;
+  padding: 4px 6px;
+}
+
+.has-input label.active {
+  background-color: hsl(217, 71%, 53%);
+  color: white;
+  font-weight: bold;
+}
