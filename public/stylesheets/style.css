@@ -56,7 +56,7 @@ small, .text_small {font-size: 0.75em;}
 }
 
 .has-input label.active {
-  background-color: hsl(217, 71%, 53%);
+  background-color: hsl(204, 86%, 53%);
   color: white;
   font-weight: bold;
 }
