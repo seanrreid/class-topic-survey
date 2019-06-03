@@ -13,7 +13,8 @@
             </tr>
         `).join('')}
     </table>
-    <table class="table">
+    <form name="ranking-form" action="/update" method="POST">
+        <table class="table">
             <thead>
                 <tr>
                     <th>Topic</th>
@@ -98,5 +99,7 @@
                         </select>
                     </td>
                 </tr>
-        </table>
+            </table>
+            <button type="submit">Save Rankings</button>
+        </form>
 </section>
