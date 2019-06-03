@@ -7,26 +7,43 @@ class ClassInfo {
         this.rank = rank;
     }
 
-    static async getAll() {
+    static async getAllTopicData() {
         try {
-            const response = await db.any(`select * from topics inner join class_status on topics.status_id = class_status.id;`);
+            const response = await db.any(`SELECT 
+                    topics.id, 
+                    topics.topic_name, 
+                    topics.status_id,
+                    class_status.status_title
+                FROM topics 
+                INNER JOIN 
+                    class_status on topics.status_id = class_status.id 
+                ORDER BY topics.id;`);
             return response;
         } catch(err) {
             return err.message;
         }
     }
 
-    // static async add(name, year) {
-    //     const query = `INSERT INTO ceos (name, year) VALUES ('${name}', ${year})`;
+    static async getAllClassStatus() {
+        try {
+            const response = await db.any(`SELECT * FROM class_status;`);
+            return response;
+        } catch(err) {
+            return err.message;
+        }
+    }
 
-    //     try {
-    //         let response = await db.result(query);
-    //         return response;
-    //     } catch(err) {
-    //         console.log("ERROR", err.message);
-    //         return err;
-    //     };
-    // }
+    static async update(topic, rank) {
+        const query = `UPDATE topics SET status_id=${rank} WHERE topic_name = '${topic}'`
+        try {
+            const response = await db.result(query);
+            console.log("response is", response);
+            return response;
+        } catch(err) {
+            console.log("ERROR", err.message);
+            return err;
+        }
+    }
 }
 
 module.exports = ClassInfo;
