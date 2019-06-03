@@ -2,12 +2,8 @@ const express = require('express');
 const router = express.Router();
 const ClassDataModel = require('../models/classInfo');
 
-/* GET home page. */
-router.get('/', async (req, res, next) => {
-  const topicData = await ClassDataModel.getAllTopicData();
-  const topicStatusList = await ClassDataModel.getAllClassStatus();
-
-  res.render('template', { 
+const renderItems = async (res, topicData, topicStatusList) => {
+  return res.render('template', { 
     locals: {
       title: 'Class Topic Ranking',
       topicData: topicData,
@@ -17,17 +13,28 @@ router.get('/', async (req, res, next) => {
       partial: 'partial-index'
     }
   });
-});
+}
 
-router.post('/update', (req, res) => {
-  console.log(req.body);
-
-  for(let key in req.body) {
-    ClassDataModel.update(key, req.body[key]);
+const updateEach = async (items) => {
+  for(let key in items) {
+    ClassDataModel.update(key, items[key]);
   }
+}
 
-  res.status(200).redirect('/');
+/* GET home page. */
+router.get('/', async (req, res, next) => {
+  const topicData = await ClassDataModel.getAllTopicData();
+  const topicStatusList = await ClassDataModel.getAllClassStatus();
+
+  renderItems(res, topicData, topicStatusList);
 });
 
+router.post('/', async (req, res) => {
+  const addUpdatedValues = await updateEach(req.body);
+  const topicData = await ClassDataModel.getAllTopicData();
+  const topicStatusList = await ClassDataModel.getAllClassStatus();
+
+  renderItems(res, topicData, topicStatusList);
+});
 
 module.exports = router;
