@@ -1,4 +1,4 @@
-# Week 8, Day 1 Assignment - Node + Express + PostgreSQL exercise
+# Node + Express + PostgreSQL exercise
 
 ## We're going to create an app to rank our understanding of the following topics:
 
