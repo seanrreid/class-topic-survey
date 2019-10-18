@@ -27,6 +27,11 @@
     * With a POST route that allows you to change your ranking for each topic.
     
  
- _HINT_: You'll probably to use a HTML `select` element to create dropdowns for the 1-5 ranking
+ _HINT_: Think of some options for the HTML form elements to choose the 1-5 ranking
  
- _HINT_: You'll need to LOOP through an array of your responses and UPDATE the database accordingly.
+  * Some students used `select` elements to create dropdowns
+  * Others used `radio` buttons
+ 
+ _HINT_: You'll probably want to LOOP through an array of your responses and UPDATE the database accordingly.
+  
+  * ie. `for(let key in req.body){...}`
